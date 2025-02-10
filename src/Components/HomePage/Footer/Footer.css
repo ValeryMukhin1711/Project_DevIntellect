@@ -2,9 +2,8 @@
 
 .footer {
     font-family: 'Montserrat';
-    width: 1440px;
-    height: 948px;
-    
+    width: 100%;
+
 }
 
 .contact {
@@ -40,6 +39,7 @@
     color: #8B8B8B;
     size: 20px;
     border-radius: 14px;
+    
 }
 
 
@@ -65,7 +65,7 @@
 iframe {
     width: 1360px;
     height: 350px;
-    margin-left: 40px;
+    /* margin-left: 40px; */
     margin-top: 32px;
     border-radius: 14px;
 }

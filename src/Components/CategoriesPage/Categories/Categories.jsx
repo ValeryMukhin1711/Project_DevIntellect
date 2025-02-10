@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+
 import "./Categories.css";
 import selectedсategory from "../../../store/SelectedCategory";
 import { Link } from "react-router-dom";
@@ -38,35 +39,35 @@ const Categories = () => {
   if (error) return <p>{error}</p>;
   console.log('categories before return',categories)
   return (
-    <div className="categories-container">
-      <div className="categories-content">
-        <div className="categories-header">
-          <h1 className="categories-title">Категории</h1>
+    <div className="all-categories-block">
+        
+        <div className='nav-buttons'>
+          <Link to='/'><button className='mainPage-nav'>Main page</button></Link>
+          {/* <div className='line-between'></div> */}
+          <button className='categories-nav'>Categories</button>
         </div>
-        <div className="categories-images">
+        <h1 className='h-allCaterogiesPage'>Categories</h1>
+
+
+        <div className="category-images">
           {categories.map((category) => (
             
-            <div key={category.id} className="categories-item">
+            <div key={category.id} className="category-item">
               
               <Link to='/categoryproducts'>
-              <img className='img_category'
+              <img className='img_categories'
                 // src={imagesArr[category.id][1]}
                 src={`http://localhost:3333/${category.image}`}
                 alt={category.title}
-                className1="categories-image"
                 onClick={()=>selectedсategory.addItem(category)}
                 />
               </Link>
-              <h3 className="categories-text">{category.title}</h3>
+              <h3 className="category-text">{category.title}</h3>
               {/* <h3 className="categories-id">{category.id}</h3> */}
-              <Link to='/categoryproducts'>
-              <button onClick={()=>selectedсategory.addItem(category)}>Show more...</button>
-              </Link>
             </div>
           ))}
         </div>
       </div>
-    </div>
   );
 };
 

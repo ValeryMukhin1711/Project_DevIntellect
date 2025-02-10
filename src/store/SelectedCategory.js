@@ -2,7 +2,7 @@ import { makeAutoObservable } from "mobx";
 
 class SelectedCategory {
 
-  selectedCategory = null;
+  selectedCategory = { id: null, title: '' };
 
 
 

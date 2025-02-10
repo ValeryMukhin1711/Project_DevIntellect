@@ -1,5 +1,5 @@
 import React from "react";
-import "./Header.css";
+import "../Header/Header.css";
 import logo from "../../../logo/logo.png";
 import basketIcon from "../../../icon/icons.png";
 import { Link } from "react-router-dom";
@@ -9,24 +9,31 @@ import { observer } from "mobx-react-lite";
 function Header() {
   return (
     <header className="header">
-      <div className="header-content">
-        <ul className="navigation">
-          <li className="logo">
-            <img src={logo} alt="Logo" />
-          </li>
-          <li><Link to='/'>Main Page</Link></li>
-          <li><Link to='/category'>Categories</Link></li>
-          <li><Link to='/allproducts'>All products</Link></li>
-          <li><Link to='/allsales'>All sales</Link></li>
+      
+      <Link to='/' className="logo">
+      <img src={logo} alt="Logo" />
+      </Link>
+            
+          
 
-          <li className="basket-icon">
-            <Link to='/shippingcart'>
-            <span>{basket.items.length}</span>
-            <img src={basketIcon} alt="Basket Icon" />
-            </Link>
-          </li>
+        <ul className="navigation">
+          <Link to='/' className="link">Main Page</Link>
+          <Link to='/category' className="link">Categories</Link>
+          <Link to='/allproducts' className="link">All products</Link>
+          <Link to='/allsales' className="link">All sales</Link>
         </ul>
-      </div>
+
+        
+            <Link to='/shippingcart' className="basket-icon">
+
+            
+            <span className="basket-products-count">{basket.items.length}</span>
+            <img src={basketIcon} alt="Basket Icon" />
+            
+            
+            </Link>
+      
+      
     </header>
   );
 }

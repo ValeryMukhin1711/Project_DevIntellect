@@ -1,6 +1,6 @@
 
 
-.sale-container {
+/* .sale-container {
     padding: 20px;
     font-family: Arial, sans-serif;
   }
@@ -113,16 +113,15 @@
   
   .old-price {
     text-decoration: lingit e-through;
-    /* text-decoration: Strikethrough; */
     font-weight: 500;
     font-size: 20px;
     line-height: 26px;
     margin-left: 10px;
     color: #8b8b8b;
-  }
+  } */
   
   
-  @media (max-width: 768px) {
+  /* @media (max-width: 768px) {
     .sale-title {
       font-size: 48px;
     }
@@ -140,4 +139,4 @@
     .sale-item {
       flex: 1 1 100%;
     }
-  }
+  } */

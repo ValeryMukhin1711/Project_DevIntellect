@@ -16,7 +16,10 @@ export const AllProductsPage = () => {
       try {
         const response = await axios.get('http://localhost:3333/products/all');
         console.log('response', response);
-        setProducts(response.data);
+        
+        const tmpArr = response.data.filter((el) => el.discont_price !== null);
+        setProducts(tmpArr);
+        
       } catch (err) {
         setError('Ошибка при загрузке products');
       } finally {
@@ -51,13 +54,13 @@ export const AllProductsPage = () => {
                         alt={item.title}
                         className="sale-image"
                       />
-                      {/* <div className="discount-badge">
+                      <div className="discount-badge">
                       -{' '}
                       {Math.round(
                         100 - (item.discont_price / item.price) * 100
                       )}
                       %
-                    </div> */}
+                    </div>
                     </div>
                     <h3 className="sale-item-title">{item.title}</h3>
                     {/* <p className="sale-price">

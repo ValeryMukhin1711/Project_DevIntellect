@@ -2,7 +2,7 @@ import Header from '../HomePage/Header/Header';
 import Footer from '../HomePage/Footer/Footer';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import './Sale.css';
+import './AllSalePage.css';
 
 import selectedproduct from '../../store/SelectedProduct';
 import { Link } from 'react-router-dom';
@@ -34,12 +34,15 @@ export const AllSalePage = () => {
   return (
     <>
       <Header />
-      <div className="sale-container">
         <div className="sale-content">
-          <div className="sale-header">
-            <h1 className="sale-title">All Sales</h1>
-            {/* <button className="sale-button">All Products</button> */}
-          </div>
+          
+        <div className='nav-buttons-sales'>
+          <Link to='/'><button className='mainPage-nav'>Main page</button></Link>
+          {/* <div className='line-between'></div> */}
+          <button className='sale-nav'>All sales</button>
+        </div>
+        <h1 className='h-all-sale-page'>Discounted items</h1>
+          
           <div className="sale-items">
             {[...items].map((item, index) => (
               <div key={index} className="sale-item">
@@ -62,10 +65,15 @@ export const AllSalePage = () => {
                         %
                       </div>
                     </div>
-                    <AddToBasket value={item}/>
+                    {/* <AddToBasket value={item}/> */}
                     <h3 className="sale-item-title">{item.title}</h3>
+                    <p className="sale-price" /> 
 
-                    <ShowDetails value={item} />
+                    <span className="new-price">
+                      ${item.discont_price.toFixed(2)}
+                    </span>
+                    <span className="old-price">${item.price.toFixed(2)}</span>
+                    {/* <ShowDetails value={item} /> */}
                   </>
                 ) : (
                   <div className="empty-sale-item"></div>
@@ -74,8 +82,9 @@ export const AllSalePage = () => {
             ))}
           </div>
         </div>
-      </div>
       <Footer />
     </>
   );
 };
+
+export default AllSalePage;

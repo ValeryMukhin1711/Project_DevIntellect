@@ -8,6 +8,8 @@ import ShoppingCartPage  from './Components/ShoppingCartPage/ShoppingCartPage';
 import { BrowserRouter, Routes, Route} from 'react-router-dom';
 import { CategoryProductsPage } from './Components/CategoryProductsPage/CategoryProductsPage';
 import { ProductInformation}  from './Components/ProductInformation/ProductInformation';
+import Header from './Components/HomePage/Header/Header';
+import Footer from './Components/HomePage/Footer/Footer';
 
 function App() {
   useEffect(() => {
@@ -18,16 +20,17 @@ function App() {
     <>
     
       <BrowserRouter>
+      <Header />
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/category" element={<CategoriesPage />} />
           <Route path="/allproducts" element={<AllProductsPage />} />
           <Route path="/allsales" element={<AllSalePage />} />
           <Route path="/shippingcart" element={<ShoppingCartPage />} />
-          <Route path="/categoryproducts" element={<CategoryProductsPage />} />
           <Route path="/productinfo" element={<ProductInformation />} />
-          <Route path="*" element={<CategoriesPage />} />
+          <Route path="/categoryproducts/:id" element={<CategoryProductsPage />} />
         </Routes>
+      <Footer />
       </BrowserRouter>
       
     </>

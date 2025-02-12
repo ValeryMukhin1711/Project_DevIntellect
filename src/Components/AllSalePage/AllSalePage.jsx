@@ -76,7 +76,7 @@ export const AllSalePage = () => {
                     {/* <ShowDetails value={item} /> */}
                   </>
                 ) : (
-                  <div className="empty-sale-item"></div>
+                  <div className="empty-sale-item"></div> //reomve
                 )}
               </div>
             ))}

@@ -54,12 +54,12 @@ const Categories = () => {
             
             <div key={category.id} className="category-item">
               
-              <Link to='/categoryproducts'>
+              <Link to={`/categoryproducts/${category.id}`}>
               <img className='img_categories'
                 // src={imagesArr[category.id][1]}
                 src={`http://localhost:3333/${category.image}`}
                 alt={category.title}
-                onClick={()=>selectedсategory.addItem(category)}
+                
                 />
               </Link>
               <h3 className="category-text">{category.title}</h3>

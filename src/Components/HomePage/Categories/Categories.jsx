@@ -19,7 +19,7 @@ const Categories = () => {
     const fetchCategories = async () => {
       try {
         const response = await axios.get("http://localhost:3333/categories/all");
-        // console.log('response.data',response.data)
+        console.log('response.data',response.data)
         // console.log('run setCategories')
 
         const randomCategories = response.data.sort(() => Math.random() - 0.5)
@@ -37,12 +37,15 @@ const Categories = () => {
 
   if (loading) return <p> Загрузка...</p>;
   if (error) return <p>{error}</p>;
-  console.log('categories before return',categories)
+  console.log('categories before return',categories);
+
   return (
+
     <div className="main-container">
         <div className="category-list">
           <h1 className="h-categories">Categories</h1>
           <div className='line'></div>
+
           <Link to='/categories'>
           <button className='all-categories-button'>All categories</button>
           </Link> 
@@ -52,14 +55,15 @@ const Categories = () => {
           {categories.map((category) => (
             <div key={category.id} className="categories-item">
 
-              <Link to='/categoryproducts'>
+              <Link to={`/categoryproducts/${category.id}`}>
               <img className='img_category'
                 // src={imagesArr[category.id][1]}
                 src={`http://localhost:3333/${category.image}`}
-                alt={category.title}
+                alt='productImage'
                 onClick={()=>selectedсategory.addItem(category)}
                 />
               </Link>
+
               <h3 className="categories-text">{category.title}</h3>
             </div>           
           ))}

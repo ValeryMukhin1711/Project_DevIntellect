@@ -77,13 +77,13 @@ text-align: center;
   .image-container {
     position: relative;
     width: 100%;
-    padding-top: 110%; 
+    
     
 
   }
   
   .sale-image {
-    position: absolute;
+    /* position: absolute; */
     top: 0;
     left: 0;
     width: 100%;

@@ -1,28 +1,31 @@
-import Header from '../HomePage/Header/Header';
-import Footer from '../HomePage/Footer/Footer';
+
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import './CategoryProductsPage.css'
-import basket from '../../store/Basket';
+import { useParams } from 'react-router-dom';
+import './CategoryProductsPage.css';
+
+
 import selectedсategory from '../../store/SelectedCategory';
-import AddToBasket from '../Buttons/AddToBasket';
-import ShowDetails from '../Buttons/ShowDetails';
 import selectedproduct from '../../store/SelectedProduct';
 import { Link } from 'react-router-dom';
+import Categories from '../CategoriesPage/Categories/Categories';
 
 export const CategoryProductsPage = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const { id } = useParams();  
 
+  console.log('CategoryProductsPage');
   console.log('CategoryProductsPage');
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        console.log('selectedсategory', selectedсategory);
-        const response = await axios.get('http://localhost:3333/products/all');
+        const response = await axios.get(`http://localhost:3333/categories/${id}`);
         console.log('response', response);
-        setProducts(response.data);
+        setProducts(response.data.data);
+        console.log('Products: ', response.data);
+        
       } catch (err) {
         setError('Ошибка при загрузке products');
       } finally {
@@ -41,20 +44,10 @@ export const CategoryProductsPage = () => {
   );
 
   
+ 
 
-
-
-  const items = products.filter(
-    (el) => el.categoryId === selectedсategory.selectedCategory.id
-  );
-
-  console.log(
-    'selectedсategory.selectCategory.id',
-    selectedсategory.selectedCategory.id
-  );
   return (
-    <>
-      <Header />     
+    <>    
         <div className="category-products-content">
           
           <div className='nav-buttons-category-products'>
@@ -69,17 +62,19 @@ export const CategoryProductsPage = () => {
           </div>
 
           <div className="sale-items">
-            {[...items].map((item, index) => (
-              <div key={index} className="sale-item">
+            {products.map((item) => (              
+              <div key={item.id} className="sale-item">
+                
+                
                 {item ? (
                   <>
                     <div className="image-container">
                       <Link to="/productinfo">
                         <img
-                          src={`http://localhost:3333/${item.image}`}
+                          src={`http://localhost:3333/category/${item.image}`}
                           alt={item.title}
                           className="sale-image"
-                          onClick={() => selectedproduct.addItem(item)}
+                          
                         />
                       </Link>
                      
@@ -106,7 +101,8 @@ export const CategoryProductsPage = () => {
   </div>
 ))}
 </div>
-      <Footer />
+
     </>
+    
   );
 };

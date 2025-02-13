@@ -1,0 +1,71 @@
+.sale-items {
+    display: flex;
+    flex-direction: column; /* Выстраиваем элементы вертикально */
+    gap: 20px; /* Добавляем отступы между товарами */
+    align-items: center; /* Центрируем товары */
+  }
+  
+  .sale-item {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Отступ между изображением и описанием */
+    width: 80%; /* Ограничиваем ширину контейнера */
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+  }
+  
+  .image-container {
+    flex-shrink: 0;
+    width: 100px;
+    height: 100px;
+  }
+  
+  .sale-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  .sale-item-title {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .sale-price {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  .new-price {
+    color: red;
+    font-weight: bold;
+  }
+  
+  .old-price {
+    text-decoration: line-through;
+    color: gray;
+  }
+  
+  .quantity-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .quantity-controls button {
+    padding: 5px 10px;
+    font-size: 16px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .quantity-controls button:hover {
+    background-color: #0056b3;
+  }

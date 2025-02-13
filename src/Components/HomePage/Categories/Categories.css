@@ -1,0 +1,40 @@
+.categories-container {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  /* text-align: center; */
+  border: 1px solid red;
+}
+
+.categories-content {
+  width: 100%;
+  /* max-width: 1200px; */
+  margin: 0 ;
+  border: 1px solid blue;
+}
+
+.categories-image {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.img_category- {
+  width: 316px;
+  height: 350px;
+}
+
+.image-container {
+  position: relative;
+  width: 100%;
+  padding-top: 110%; 
+  }
+
+.sale-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

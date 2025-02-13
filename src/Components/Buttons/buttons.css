@@ -1,0 +1,19 @@
+.add-button {
+  background-color: green;
+  color: white;
+  border: 5px solid 'red';
+  border-radius: 5px;
+  padding: auto;
+}
+
+/* button {
+  background-color: green;
+  color: white;
+  border: 5px solid 'red';
+} */
+
+#add-button {
+  background-color: 'green';
+  color: 'white';
+  border: 5px solid 'red';
+}
